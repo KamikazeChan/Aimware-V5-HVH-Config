@@ -2,3 +2,17 @@ nc localhost 40002
 
 
 call 13 "add_new_node","gamework"
+
+
+function subjectmgr:add_exp(exp)
+    local curCourse = self.course.curCourse
+    local courseInfo = self.course[curCourse]
+    if exp < self.course[curCourse].need_exp then
+        self.course[curCourse].need_exp = self.course[curCourse].need_exp - exp
+        return 0
+    else
+        self.course[curCourse].need_exp = 0
+        self.course[curCourse].status = COURSE_FINISH
+        return exp - self.course[curCourse].need_exp
+    end
+end
