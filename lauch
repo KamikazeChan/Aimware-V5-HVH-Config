@@ -3,6 +3,8 @@ nc localhost 40002
 
 call 13 "add_new_node","gamework"
 
+lauch for skynet thread
+
 
 function subjectmgr:add_exp(exp)
     local curCourse = self.course.curCourse
